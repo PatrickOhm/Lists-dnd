@@ -2,7 +2,7 @@ import ListForm from "./ListForm";
 import ListItem from "./ListItem";
 import ListNameEdit from "./ListNameEdit";
 import { XCircle } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteList } from "../store";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
