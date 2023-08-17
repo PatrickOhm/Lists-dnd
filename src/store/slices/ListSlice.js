@@ -46,10 +46,10 @@ const listSlice = createSlice({
         },
 
         deleteList(state, action) {
-            const updatet = state.data.filter((list) => {
-                return list.id !== action.payload.id;
+            const updated = state.data.filter((list) => {
+                return list.id !== action.payload.listId;
             });
-            state.data = updatet;
+            state.data = updated;
         },
 
         changeListTitle(state, action) {

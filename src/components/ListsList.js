@@ -3,12 +3,13 @@ import NewListBtn from "./NewListBtn";
 import { useSelector, useDispatch } from "react-redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { moveItem, moveList } from "../store";
-
+import DeleteModal from "./DeleteModal";
 
 
 function ListsList() {
     const dispatch = useDispatch();
     const lists = useSelector((state) => state.lists.data);
+    const isModalOpen = useSelector((state) => state.modal.isOpen);
 
     const handleOnDragEnd = result => {
         const { destination, source, draggableId, type } = result;
@@ -79,7 +80,7 @@ function ListsList() {
 
     return (
         <div className="inline-block">
-            <div className="flex ml-8 mt-8">
+            <div className={`flex ml-8 mt-8 ${isModalOpen ? 'blur-sm' : ''}`}>
                 <DragDropContext onDragEnd={handleOnDragEnd}>
                     <Droppable
                         droppableId="all-lists"
@@ -99,6 +100,7 @@ function ListsList() {
                 <NewListBtn />
                 <div className="p-1"></div>
             </div>
+            {isModalOpen && <DeleteModal />}
         </div>
     )
 

@@ -3,14 +3,15 @@ import ListItem from "./ListItem";
 import ListNameEdit from "./ListNameEdit";
 import { XCircle } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
-import { deleteList } from "../store";
+import { openModal } from "../store";
 import { Droppable, Draggable } from "react-beautiful-dnd";
+
 
 function List({ items, id, name, index }) {
     const dispatch = useDispatch();
 
     const handleListDelete = () => {
-        dispatch(deleteList({ id }));
+        dispatch(openModal({ id }));
     }
 
     const renderedItems = items.map((item, index) => {

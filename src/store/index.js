@@ -13,7 +13,15 @@ import {
     moveItem,
     moveList
 } from "./slices/ListSlice";
-import { formReducer, changeNewListTerm } from "./slices/formSlice";
+import {
+    formReducer,
+    changeNewListTerm
+} from "./slices/formSlice";
+import {
+    modalReducer,
+    openModal,
+    closeModal,
+} from "./slices/ModalSlice";
 
 const persistConfig = {
     key: 'root',
@@ -23,6 +31,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     lists: listReducer,
     form: formReducer,
+    modal: modalReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -49,5 +58,7 @@ export {
     changeListTitle,
     submitNewListTitle,
     moveItem,
-    moveList
+    moveList,
+    openModal,
+    closeModal,
 }
