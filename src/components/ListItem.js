@@ -11,6 +11,8 @@ function ListItem({ title, id, listId, index }) {
 
     const handleItemDelete = () => {
         itemRef.current.classList.add('fadeout');
+        itemRef.current.classList.add('ease-linear');
+        itemRef.current.classList.add('duration-200');
         setTimeout(() => {
             itemRef.current.classList.add('slideup');
             itemContainer.current.className = 'ease-linear duration-200 mt-0';
@@ -41,8 +43,6 @@ function ListItem({ title, id, listId, index }) {
                                 rounded-md
                                 h-10 
                                 cursor-pointer
-                                ease-linear
-                                duration-200
                                 "
                     >
                         <div
