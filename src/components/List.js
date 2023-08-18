@@ -49,7 +49,7 @@ function List({ items, id, name, index }) {
                     <Droppable droppableId={id} type="item">
                         {(provided) => (
                             <ul
-                                className="space-y-2 text-white"
+                                className="text-white"
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
 

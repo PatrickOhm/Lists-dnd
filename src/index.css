@@ -7,3 +7,23 @@ html {
     background-color: #0f172a;
     user-select: none;
 }
+
+/* Animation effects */
+
+.fadeout {
+    opacity: 0;
+}
+
+.slideup {
+    height: 0;
+    margin-top: 0;
+}
+
+.slidedown {
+    height: 40px;
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+}
