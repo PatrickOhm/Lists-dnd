@@ -13,7 +13,7 @@ function ListItem({ title, id, listId, index }) {
         itemRef.current.classList.add('fadeout');
         setTimeout(() => {
             itemRef.current.classList.add('slideup');
-            itemContainer.current.classList.add('mt-0')
+            itemContainer.current.className = 'ease-linear duration-200 mt-0';
             setTimeout(() => {
                 dispatch(deleteItem({ id, listId }))
             }, 200)
