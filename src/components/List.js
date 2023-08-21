@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { openModal } from "../store";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
-
 function List({ items, id, name, index }) {
     const dispatch = useDispatch();
 
@@ -22,9 +21,11 @@ function List({ items, id, name, index }) {
                 listId={id}
                 key={item.id}
                 index={index}
+                dragged={item.dragged}
             />
         )
     })
+
     return (
         <Draggable draggableId={id} index={index}>
             {(provided) => (

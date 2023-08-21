@@ -28,7 +28,8 @@ const listSlice = createSlice({
             if (list) {
                 list.items.push({
                     title: action.payload.title,
-                    id: nanoid()
+                    id: nanoid(),
+                    dragged: false
                 });
                 list.newItemTerm = '';
             }

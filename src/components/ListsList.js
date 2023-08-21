@@ -31,7 +31,13 @@ function ListsList() {
 
         const start = lists.find(list => list.id === source.droppableId);
         const finish = lists.find(list => list.id === destination.droppableId);
-        const draggedItem = start.items.find(item => item.id === draggableId);
+        const item = start.items.find(item => item.id === draggableId);
+        const draggedItem = {
+            ...item,
+            dragged: true
+        };
+
+        console.log(draggedItem);
 
         if (start === finish) {
             const newItems = [...start.items];

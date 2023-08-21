@@ -23,6 +23,10 @@ html {
     height: 40px;
 }
 
+.fadein {
+    opacity: 1;
+}
+
 .hidden {
     opacity: 0;
     height: 0;

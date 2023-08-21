@@ -2,17 +2,16 @@ import { Trash } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { deleteItem } from "../store";
 import { Draggable } from "react-beautiful-dnd";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
-function ListItem({ title, id, listId, index }) {
+function ListItem({ title, id, listId, index, dragged }) {
     const dispatch = useDispatch();
     const itemRef = useRef(null);
     const itemContainer = useRef(null);
 
     const handleItemDelete = () => {
+        itemRef.current.classList.remove('fadein')
         itemRef.current.classList.add('fadeout');
-        itemRef.current.classList.add('ease-linear');
-        itemRef.current.classList.add('duration-200');
         setTimeout(() => {
             itemRef.current.classList.add('slideup');
             itemContainer.current.className = 'ease-linear duration-200 mt-0';
@@ -21,6 +20,22 @@ function ListItem({ title, id, listId, index }) {
             }, 200)
         }, 200)
     }
+
+    useEffect(() => {
+        if (!dragged) {
+            itemRef.current.classList.add('ease-linear');
+            itemRef.current.classList.add('duration-200');
+            itemRef.current.classList.add('h-10');
+            setTimeout(() => {
+                itemRef.current.classList.add('fadein');
+                itemRef.current.classList.remove('fadeout');
+            }, 200);
+        } else {
+            itemRef.current.classList.add('fadein');
+            itemRef.current.classList.add('h-10');
+        }
+    }, [dragged]);
+
     return (
         <Draggable draggableId={id} index={index} key={id}>
             {(provided) => (
@@ -41,7 +56,8 @@ function ListItem({ title, id, listId, index }) {
                                 items-center
                                 bg-slate-400 
                                 rounded-md
-                                h-10 
+                                fadeout
+                                
                                 cursor-pointer
                                 "
                     >
